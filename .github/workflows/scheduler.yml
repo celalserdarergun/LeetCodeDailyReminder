@@ -1,0 +1,23 @@
+name: Remind LeetCode Challenge
+
+on:
+  schedule:
+    # 00:00(UTC) every day: https://crontab.guru/#0_0_*_*_*
+    - cron: "0/5 * * * *"
+    # - cron: "0 0 * * *"
+
+jobs:
+  build:
+    name: Remind
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - name: Remind
+        run: |
+          deno run --allow-all main.ts
+        env:
+          TODOIST_API_TOKEN: ${{ secrets.TODOIST_API_TOKEN }}
