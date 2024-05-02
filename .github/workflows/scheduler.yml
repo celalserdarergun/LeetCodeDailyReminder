@@ -3,7 +3,7 @@ name: Remind LeetCode Challenge
 on:
   schedule:
     # 00:00(UTC) every day: https://crontab.guru/#0_0_*_*_*
-    - cron: "0/5 * * * *"
+    - cron: "0/10 * * * *"
     # - cron: "0 0 * * *"
 
 jobs:
