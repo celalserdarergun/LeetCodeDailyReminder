@@ -90,7 +90,7 @@ const createTodoistTask = async (api: TodoistApi, question: Question) => {
       console.log("Fetching sections...");
       console.log(sections);
       for (const section of sections) {
-        if (section.name === "DAILY") { // FIXME: specify the section you want to add the task to
+        if (section.name === "Todoist") { // FIXME: specify the section you want to add the task to
           targetSectionId = section.id.toString();
         }
       }
@@ -104,7 +104,7 @@ const createTodoistTask = async (api: TodoistApi, question: Question) => {
     content: `${questionId}: [${questionTitle}](${questionLink})`,
     description: `Difficulty: ${questionDifficulty}`,
     due_string: "today",
-    labels: ["work"], // FIXME: specify the labels you want to add to the task
+    labels: ["Todoist", `${questionDifficulty}`], // FIXME: specify the labels you want to add to the task
     section_id: targetSectionId,
   };
   console.log(questionInfo);
